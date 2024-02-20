@@ -1,6 +1,8 @@
 #ifndef SORT_H
 #define SORT_H
 #include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 
 typedef enum {
