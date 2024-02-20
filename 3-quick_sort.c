@@ -1,22 +1,6 @@
 #include "sort.h"
 
 /**
- * swap - Swaps two integers
- *
- * @a: Pointer to the first integer
- * @b: Pointer to the second integer
- */
-void swap(int *a, int *b)
-{
-	int temp = *a;
-
-	if (*a != *b)
-	{
-		*a = *b;
-		*b = temp;
-	}
-}
-/**
  * partition - Partitions an array using the Lomuto partition scheme
  *
  * @array: The array to be partitioned
@@ -29,20 +13,26 @@ void swap(int *a, int *b)
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1;
-	int j;
+	int i = (low - 1);
+	int j, temp;
 
 	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
 		{
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+			if (i != j)
+				print_array(array, size);
 		}
 	}
-	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
+	temp = array[i + 1];
+	array[i + 1] = array[high];
+	array[high] = temp;
+	if (i + 1 != high)
+		print_array(array, size);
 	return (i + 1);
 }
 
