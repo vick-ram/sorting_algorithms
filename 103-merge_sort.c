@@ -6,7 +6,6 @@
  * @size: Number of elements in the array
  * @left: Left subarray
  * @right: Right subarray
- * @mid: Mid index
  */
 void merge(int *array, int *left, int *right, int size)
 {
